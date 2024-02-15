@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 
 import { useData } from "../firebase";
 
-
+/*make a list of the games*/
 
 const GameList = ({ games }) => {
 
