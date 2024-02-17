@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider, useQuery } from "react-query"
 import { Navbar } from './Components/Navbar';
 import { Locations } from './Components/Locations';
 import { Info } from './Components/Info';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
 import { HeaderHome, Home } from './Components/Home';
 import {Games} from './Components/Games';
 
@@ -28,6 +28,7 @@ const Main = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/games' element={<Games />} />
+            
             <Route path='/games/:location' element={<Locations />} />
             <Route path='/info' element={<Info />} />
             
