@@ -16,15 +16,16 @@ const Main = () => {
   return (
     <BrowserRouter>
       <div className='App'>
+       
         <div className='App-header'>
           <h1 className='Title'>{HeaderHome.title}</h1>
-          <img src={logo1} alt='logo' />
-          <div className='Navbar'>
+          <div className='Navbar-container'>
            
             <Navbar />
           </div>
         </div>
         <div className='App-body'>
+       
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/games' element={<Games />} />

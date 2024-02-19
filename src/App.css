@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  
+  text-align: left;
+}
+.Logo1 {
+  width: 100%; 
+  height: auto; 
 }
 
 .App-logo {
@@ -14,18 +19,151 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between; 
+  position: relative; 
+  background-image: url('./Components/img/logo1.jpg'); 
+  background-size: cover; 
 }
+
+
+.Navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+}
+
+
 
 .App-link {
   color: #61dafb;
 }
 
+h1 {
+  font-size: 50px;
+  color: white;
+  margin-top: 50px;
+}
 
+.Title {
+  font-size: 50px;
+  margin-left: 20px; 
+}
+
+.Title-2 h2{
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  border-bottom: solid grey 10px;
+}
+.Upcoming-events-container ul li{
+  text-align: center;
+  font-size: 15px;
+}
+
+.Upcoming-events-container{
+  margin-left: 30px;
+  margin-top: 50px;
+  
+}
+.Upcoming-events-container ul li {
+  text-align: left;
+  font-size: 15px;
+  margin-left: 35px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.Content-container {
+  display: flex;
+}
+
+.Logo2 {
+  position: absolute; 
+  top: calc(100% + 100px); 
+  right: 0; 
+}
+
+.App-logo-2 {
+  width: 250px;
+}
+.games-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr)); 
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); 
+  }
+}
+
+.additional-info-heading {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  border-bottom: solid grey 10px;
+  font-size: calc(1.325rem + .9vw);
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+  padding-bottom: 10px; /* Add padding for spacing */
+}
+
+.additional-info-container {
+  max-width: 600px;
+  margin: 0 auto;
+  
+}
+
+.additional-game-info {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.additional-info-introductions {
+  font-weight: bold;
+}
+
+#contactInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+#phone,
+#email {
+  margin-top: 10px;
+}
+
+#email a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#email a:hover {
+  text-decoration: underline;
+}

@@ -6,22 +6,18 @@ const capitalize = (word) => {
   return word[0].toUpperCase() + word.slice(1);
 };
 
-
 export const Games = () => {
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 620);
   const [games, loading, error] = useData("/games");
   const [locations, locationLoading, locationError] = useData("/locations");
 
   useEffect(() => {
-   
     const handleResize = () => {
       setSmallScreen(window.innerWidth < 620);
     };
 
-    
     window.addEventListener("resize", handleResize);
 
-    
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -44,7 +40,6 @@ export const Games = () => {
               {capitalize(game.location)}
             </Link>
           </p>
-         
         </div>
       );
     });
@@ -52,8 +47,9 @@ export const Games = () => {
 
   return (
     <div className="games-container">
-      {renderEvents()}
+      <div className="table-container">
+        {renderEvents()}
+      </div>
     </div>
   );
 };
-

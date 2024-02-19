@@ -19,9 +19,13 @@ const LocationDetails = ({ location }) => {
   );
 };
 
+
+
 export const Locations = () => {
   const { location } = useParams();
   const [locations, loading, error] = useData('locations');
+  
+
   
   if (loading) {
     return <div>Loading...</div>;
@@ -32,7 +36,7 @@ export const Locations = () => {
   }
 
   const locationData = locations[location];
-
+  
   return (
     <div>
       <h2>{location}</h2>
