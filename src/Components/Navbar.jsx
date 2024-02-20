@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
-
+import { ChatScreen } from "./Chat";
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0)', boxShadow: 'none' }}>
@@ -34,6 +34,11 @@ export const Navbar = () => {
             <li className="nav-item" style={{ padding: '15px' }}>
               <Link className="nav-link" to="/info" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
                 Additional Information
+              </Link>
+            </li>
+            <li className="nav-item" style={{ padding: '15px' }}>
+              <Link className="nav-link" to="/info" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
+                <ChatScreen />
               </Link>
             </li>
           </ul>
