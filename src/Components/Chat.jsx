@@ -1,33 +1,44 @@
-import React from 'react';
+import React from "react";
+import { useData } from "../firebase";
 
-export const ChatScreen = () => {
-  
-  const messages = [
-    { id: 1, user: 'User1', text: 'Hello there!', time: '10:00 AM' },
-    { id: 2, user: 'User2', text: 'Hi! How can I help you?', time: '10:05 AM' },
-    { id: 3, user: 'User1', text: 'I have a question about the game.', time: '10:10 AM' },
-    
-  ];
+export const Chat = ({ gameId }) => {
+    const [messages, loading, error] = useData("/messages");
 
-  return (
-    <div className="chat-screen">
-      <div className="message-list">
-        {messages.map(message => (
-          <div key={message.id} className="message">
-            <div className="message-info">
-              <span className="message-user">{message.user}</span>
-              <span className="message-time">{message.time}</span>
-            </div>
-            <div className="message-text">{message.text}</div>
-          </div>
-        ))}
+    if (loading) {
+      return <div>Loading messages...</div>;
+    }
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    }
+
+    let gameMessages = [];
+    if (messages[gameId]) {
+      gameMessages = Object.keys(messages[gameId]).map((messageId) => ({
+        id: messageId,
+        ...messages[gameId][messageId]
+      }));
+    }
+
+    return (
+      <div>
+        <h2>Messages for Game: {gameId}</h2>
+        <ul>
+          {gameMessages.map((message) => (
+            <li key={message.id}>
+              <div>
+                <strong>Author:</strong> {message.author}
+              </div>
+              <div>
+                <strong>Message:</strong> {message.text}
+              </div>
+              <div>
+                <strong>Timestamp:</strong>{" "}
+                {new Date(message.timestamp).toLocaleString()}
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="message-input">
-        <input type="text" placeholder="Type your message..." />
-        <button>Send</button>
-      </div>
-    </div>
-  );
+    );
 };
-
-

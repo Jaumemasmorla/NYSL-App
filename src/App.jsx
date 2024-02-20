@@ -9,6 +9,7 @@ import { Info } from './Components/Info';
 import { BrowserRouter , Routes, Route } from "react-router-dom";
 import { HeaderHome, Home } from './Components/Home';
 import {Games} from './Components/Games';
+import { Chat } from './Components/Chat';
 
 
 
@@ -32,6 +33,7 @@ const Main = () => {
             <Route path='/games' element={<Games />} />
             
             <Route path='/games/:location' element={<Locations />} />
+            <Route path='/messages' element={<Chat />} />
             <Route path='/info' element={<Info />} />
             
           </Routes>
