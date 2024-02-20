@@ -4,9 +4,9 @@ import { useData } from '../firebase';
 
 const LocationDetails = ({ location }) => {
   return (
-    <div className="location-details">
-      <h2>{location.full_name}</h2>
-      <p>Address: {location.address}</p>
+    <div className="additional-info-container">
+      <h2 className="additional-info-heading">{location.full_name}</h2>
+      <p className="additional-game-info">Address: {location.address}</p>
       <iframe
         title="Location Map"
         width="600"
@@ -19,13 +19,9 @@ const LocationDetails = ({ location }) => {
   );
 };
 
-
-
 export const Locations = () => {
   const { location } = useParams();
   const [locations, loading, error] = useData('locations');
-  
-
   
   if (loading) {
     return <div>Loading...</div>;
@@ -39,7 +35,6 @@ export const Locations = () => {
   
   return (
     <div>
-      <h2>{location}</h2>
       {locationData && <LocationDetails location={locationData} />}
     </div>
   );

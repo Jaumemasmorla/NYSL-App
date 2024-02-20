@@ -1,8 +1,9 @@
 
 import { initializeApp } from "firebase/app";
 import { useState, useEffect } from "react";
-
+import { getAuth, GoogleAuthProvider, onIdTokenChanged, signInWithPopup, signOut } from 'firebase/auth';
 import { getDatabase, onValue, ref, set } from 'firebase/database';
+
 
 
 const firebaseConfig = {
@@ -19,6 +20,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
 const database = getDatabase(firebase);
+
+export const signInWithGoogle = () => {
+  signInWithPopup(getAuth(firebase), new GoogleAuthProvider());
+};
 
 export const setData = (path, value) => (
   set(ref(database, path), value)

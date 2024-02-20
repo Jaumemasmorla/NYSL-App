@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "./Button";
 
 export const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ export const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        
+
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item" style={{ padding: '15px' }}>
@@ -29,11 +30,7 @@ export const Navbar = () => {
                 Games
               </Link>
             </li>
-            <li className="nav-item" style={{ padding: '15px' }}>
-              <Link className="nav-link" to="/locations" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
-                Locations
-              </Link>
-            </li>
+
             <li className="nav-item" style={{ padding: '15px' }}>
               <Link className="nav-link" to="/info" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
                 Additional Information
@@ -41,7 +38,13 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
+
+        <div className="d-flex">
+          <Button />
+        </div>
       </div>
     </nav>
   );
 };
+
+

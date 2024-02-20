@@ -36,7 +36,7 @@ export const Games = () => {
           <p>Teams: {game.teams}</p>
           <p>
             Location:{" "}
-            <Link to={`/location/${game.location}`}>
+            <Link to={`/games/${game.location}`}>
               {capitalize(game.location)}
             </Link>
           </p>
@@ -47,9 +47,8 @@ export const Games = () => {
 
   return (
     <div className="games-container">
-      <div className="table-container">
-        {renderEvents()}
-      </div>
+      <div className="additional-info-heading">NYSL Game Information</div> {/* Add class to the title */}
+      <div className="table-container">{renderEvents()}</div>
     </div>
   );
 };
