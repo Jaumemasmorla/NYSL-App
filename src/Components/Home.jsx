@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useData } from "../firebase";
 export const HeaderHome = {
   title: 'Northside Youth Soccer League'
 };
@@ -27,7 +27,10 @@ export const UpcomingEvents = {
 
 export const Home = () => {
   const events = Object.values(UpcomingEvents.events);
-
+  const [messages, loading, error] = useData('/messages');
+  console.log(messages)
+  if (loading) return <div>Loading messages...</div>;
+  if (error) return <div>Error: {error.message}</div>;
   return (
     <div>
       <div className="Title-2">

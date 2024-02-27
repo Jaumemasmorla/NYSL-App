@@ -1,44 +1,24 @@
-import React from "react";
-import { useData } from "../firebase";
+import React from 'react';
 
-export const Chat = ({ gameId }) => {
-    const [messages, loading, error] = useData("/messages");
+export const Chat = () => {
+  // Hardcoded messages for demonstration
+  const messages = [
+    { author: 'User1', text: 'Hello!', timestamp: new Date().toLocaleString() },
+    { author: 'User2', text: 'Hi there!', timestamp: new Date().toLocaleString() },
+    { author: 'User1', text: 'How are you?', timestamp: new Date().toLocaleString() }
+  ];
 
-    if (loading) {
-      return <div>Loading messages...</div>;
-    }
-
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    }
-
-    let gameMessages = [];
-    if (messages[gameId]) {
-      gameMessages = Object.keys(messages[gameId]).map((messageId) => ({
-        id: messageId,
-        ...messages[gameId][messageId]
-      }));
-    }
-
-    return (
-      <div>
-        <h2>Messages for Game: {gameId}</h2>
-        <ul>
-          {gameMessages.map((message) => (
-            <li key={message.id}>
-              <div>
-                <strong>Author:</strong> {message.author}
-              </div>
-              <div>
-                <strong>Message:</strong> {message.text}
-              </div>
-              <div>
-                <strong>Timestamp:</strong>{" "}
-                {new Date(message.timestamp).toLocaleString()}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+  return (
+    <div>
+      <h2>Chat</h2>
+      {messages.map((message, index) => (
+        <div key={index}>
+          <p>{message.author}: {message.text}</p>
+          <p>Timestamp: {message.timestamp}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
+
+export default Chat;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
-import { Chat } from "./Chat";
+
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0)', boxShadow: 'none' }}>
@@ -36,9 +36,10 @@ export const Navbar = () => {
                 Additional Information
               </Link>
             </li>
+            
             <li className="nav-item" style={{ padding: '15px' }}>
-              <Link className="nav-link" to="/info" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
-                <Chat />
+              <Link className="nav-link" to="/messages" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
+                Chat
               </Link>
             </li>
           </ul>
@@ -51,5 +52,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-

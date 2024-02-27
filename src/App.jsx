@@ -28,15 +28,14 @@ const Main = () => {
         </div>
         <div className='App-body'>
        
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/games' element={<Games />} />
-            
-            <Route path='/games/:location' element={<Locations />} />
-            <Route path='/messages' element={<Chat />} />
-            <Route path='/info' element={<Info />} />
-            
-          </Routes>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/games' element={<Games />} />
+          <Route path='/games/:location' element={<Locations />} />
+          <Route path='/messages' element={<Chat />} />
+
+          <Route path='/info' element={<Info />} />
+        </Routes>
           <div className='Container'></div>
           <div className='Logo2'>
             <img src={logo2} className='App-logo-2' alt='logo2' />
