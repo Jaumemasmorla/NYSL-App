@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-
 import { useMessages } from "./UseMessages";
 import { getDatabase, ref, push, set } from "firebase/database";
 import { getAuth } from "firebase/auth"; 
 
-export const MessageList = ({ gameId }) => {
+export const MessageList = ({ gameId, onClick, selectedGameId }) => {
   const { messages, loading, error } = useMessages(gameId);
 
   if (loading) return <div>Loading messages...</div>;
@@ -13,7 +12,9 @@ export const MessageList = ({ gameId }) => {
   return (
     <div>
       <h2>Messages for Game {gameId}</h2>
-      {messages &&
+      <button onClick={() => onClick(gameId)}>View Messages</button>
+      {selectedGameId === gameId &&
+        messages &&
         Object.entries(messages).map(([messageId, message]) => (
           <div key={messageId}>
             <p>
@@ -41,47 +42,32 @@ const ChatInput = ({ onSubmit }) => {
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        
-        bottom: 0,
-        left: 0,
-        width: "35%",
-        backgroundColor: "#f0f0f0",
-        padding: "10px",
-        borderTop: "1px solid #ccc",
-        display: "flex",
-        alignItems: "center",
-        height: "50px",
-      }}
-    >
-      <div className="input-group" style={{ flexGrow: 1 }}>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Type your message here..."
-          value={message}
-          onChange={handleChange}
-          aria-label="Type your message here"
-          aria-describedby="send-button"
-        />
-        <button className="btn btn-primary" type="submit" id="send-button">
-          Post
-        </button>
-      </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Type your message here..."
+        value={message}
+        onChange={handleChange}
+      />
+      <button type="submit">Post</button>
     </form>
   );
 };
 
 export const Chat = () => {
+  const [selectedGameId, setSelectedGameId] = useState(null);
   const gameIds = ["game-1", "game-2", "game-3"];
+
+  const handleSelectGame = (gameId) => {
+    setSelectedGameId(gameId);
+  };
+
   const handleSubmitMessages = (message) => {
+   
     const db = getDatabase();
-    const newMessageRef = push(ref(db, "messages"));
+    const newMessageRef = push(ref(db, `messages/${selectedGameId}`));
     const messageId = newMessageRef.key;
     const timestamp = Date.now();
-
    
     const auth = getAuth();
     const authorEmail = auth.currentUser ? auth.currentUser.email : "unknown@example.com";
@@ -91,16 +77,23 @@ export const Chat = () => {
       text: message,
       timestamp: timestamp,
     };
-    set(ref(db, `messages/${messageId}`), messageData);
+    set(ref(db, `messages/${selectedGameId}/${messageId}`), messageData);
   };
 
   return (
     <div>
       {gameIds.map((gameId) => (
-        <MessageList key={gameId} gameId={gameId} />
+        <div key={gameId}>
+          <MessageList
+            gameId={gameId}
+            onClick={handleSelectGame}
+            selectedGameId={selectedGameId}
+          />
+          {selectedGameId === gameId && (
+            <ChatInput onSubmit={handleSubmitMessages} />
+          )}
+        </div>
       ))}
-      <ChatInput onSubmit={handleSubmitMessages} />
     </div>
   );
 };
-
