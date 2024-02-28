@@ -9,7 +9,8 @@ import { Info } from './Components/Info';
 import { BrowserRouter , Routes, Route } from "react-router-dom";
 import { HeaderHome, Home } from './Components/Home';
 import {Games} from './Components/Games';
-import { Chat } from './Components/Chat';
+import {Chat} from './Components/MessageList';
+
 
 
 
