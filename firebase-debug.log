@@ -1,0 +1,39 @@
+[debug] [2024-03-01T17:46:07.502Z] ----------------------------------------------------------------------
+[debug] [2024-03-01T17:46:07.503Z] Command:       /Users/jaumemasmorla/.nvm/versions/node/v18.19.1/bin/node /Users/jaumemasmorla/.nvm/versions/node/v16.20.2/bin/firebase init storage
+[debug] [2024-03-01T17:46:07.503Z] CLI Version:   13.2.1
+[debug] [2024-03-01T17:46:07.503Z] Platform:      darwin
+[debug] [2024-03-01T17:46:07.503Z] Node Version:  v18.19.1
+[debug] [2024-03-01T17:46:07.504Z] Time:          Fri Mar 01 2024 18:46:07 GMT+0100 (hora estándar de Europa central)
+[debug] [2024-03-01T17:46:07.504Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-01T17:46:07.507Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-01T17:46:07.507Z] > authorizing via signed-in user (code12846@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/jaumemasmorla/Desktop/UBIQUM/NYSL-App
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-03-01T17:46:34.906Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-03-01T17:46:34.907Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"nyslapp","name":"nyslapp"}
+[debug] [2024-03-01T17:46:35.848Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 409
+[debug] [2024-03-01T17:46:35.848Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2024-03-01T17:46:35.969Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at responseToError (/Users/jaumemasmorla/.nvm/versions/node/v16.20.2/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/Users/jaumemasmorla/.nvm/versions/node/v16.20.2/lib/node_modules/firebase-tools/lib/apiv2.js:292:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project because there is already a project with ID nyslapp. Please try again with a unique project ID.

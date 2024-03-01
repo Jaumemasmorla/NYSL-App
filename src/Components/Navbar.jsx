@@ -42,6 +42,11 @@ export const Navbar = () => {
                 Chat
               </Link>
             </li>
+            <li className="nav-item" style={{ padding: '15px' }}>
+              <Link className="nav-link" to="/images" style={{ color: 'black', backgroundColor: 'white', fontSize: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', border: '2px solid black', padding: '10px', borderRadius: '5px' }}>
+                Gallery
+              </Link>
+            </li>
           </ul>
         </div>
 

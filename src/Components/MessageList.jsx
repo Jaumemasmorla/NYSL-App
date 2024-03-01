@@ -3,6 +3,7 @@ import { useMessages } from "./UseMessages";
 import { getDatabase, ref, push, set } from "firebase/database";
 import { getAuth } from "firebase/auth"; 
 
+
 export const MessageList = ({ gameId, onClick, selectedGameId }) => {
   const { messages, loading, error } = useMessages(gameId);
 
